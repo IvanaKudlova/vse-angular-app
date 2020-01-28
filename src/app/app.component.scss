@@ -1,0 +1,21 @@
+.container{
+  display: flex;
+  flex-direction: row;
+}
+ul {
+  list-style-type: none;
+}
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+.mat-toolbar {
+  background-color: rgb(73, 73, 73);
+}
+.no-outline {
+  outline: none;
+}
+.padding{
+  padding-right: 10px;
+}
