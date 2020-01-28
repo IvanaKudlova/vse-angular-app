@@ -1,0 +1,52 @@
+.dialog{
+  padding: 20px;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  .label{
+    flex-grow: 1;
+  }
+  input{
+    flex-grow: 1;
+    box-sizing: border-box;
+  }
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+.form-group {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.inputField {
+  padding-bottom: 10px;
+  border: 1px rgba(73, 73, 73, 0.67) solid;
+  border-radius: 2px;
+}
+.buttons_section{
+  text-align: center;
+  padding-top: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button{
+  background-color: rgb(73, 73, 73);
+  color: white;
+  width: 70px;
+}
+.input_file_section{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.message{
+  flex-direction: column;
+}

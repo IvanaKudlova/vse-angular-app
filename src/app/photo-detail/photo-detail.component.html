@@ -1,0 +1,25 @@
+<div class="content">
+  <mat-card>
+    <div class="center">
+      <img mat-card-image [src]="choosenPhoto.imageUrl">
+    </div>
+    <div class="container">
+      <mat-card-subtitle>Photo's Details:</mat-card-subtitle>
+      <i class="material-icons right" (click)="deletePhoto(choosenPhoto.id)" routerLink="/users-photos">delete_outline</i>
+    </div>
+    <div *ngIf="choosenPhoto;else loading">
+      <div>
+        <mat-card-title>{{choosenPhoto.title}}</mat-card-title>
+      </div>
+      <div>
+        <mat-card-subtitle>{{choosenPhoto.author}}</mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card>
+  <div class="center">
+    <app-map [lat]="choosenPhoto.lat" [lng]="choosenPhoto.lng"></app-map>
+  </div>
+  <ng-template #loading>
+    load
+  </ng-template>
+</div>

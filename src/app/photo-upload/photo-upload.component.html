@@ -1,0 +1,77 @@
+<div class="container">
+  <h2 mat-dialog-title>Upload a new photo</h2>
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+
+    <mat-dialog-content>
+
+      <mat-form-field [formGroup]="form">
+        <input matInput
+               placeholder="Photo's title"
+               formControlName="title"
+               required
+               [(ngModel)]="photoTitle"
+               name="updateTitle">
+        <mat-error *ngIf="form.controls.title?.errors && (form.controls.title?.dirty || form.controls.title?.touched)">
+          <div *ngIf="form.controls.title?.errors.required">
+            First Name is required.
+          </div>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field [formGroup]="formLat">
+        <input matInput
+               placeholder="Latitude"
+               formControlName='latitude'
+               [(ngModel)]='lat'
+               required
+               pattern="^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$"
+        >
+        <mat-error
+          *ngIf="formLat.controls.latitude?.errors && (formLat.controls.latitude?.dirty || formLat.controls.latitude?.touched)">
+          <div *ngIf="formLat.controls.latitude?.errors.required">
+            First Name is required.
+          </div>
+          <div *ngIf="formLat.controls.latitude?.errors.pattern">
+            Latitude must be in range from -90.000000 to 90.000000.
+          </div>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field [formGroup]="formLong">
+        <input matInput
+               placeholder="Longitude"
+               formControlName="longitude"
+               [(ngModel)]='lng'
+               required
+               pattern="^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$"
+        >
+        <mat-error
+          *ngIf="form.controls.longitude?.errors && (form.controls.longitude?.dirty || form.controls.longitude?.touched)">
+          <div *ngIf="form.controls.longitude?.errors.required">
+            First Name is required.
+          </div>
+          <div *ngIf="formLat.controls.longitude?.errors.pattern">
+            Longitude must be in range from -180.000000 to 180.000000.
+          </div>
+        </mat-error>
+      </mat-form-field>
+
+      <input
+        placeholder="File"
+        type="file"
+        #fileInput
+        (change)="picked($event)"
+        required
+      class="no_border input_file_section">
+
+    </mat-dialog-content>
+
+
+    <mat-dialog-actions class="buttons_section">
+      <button mat-raised-button class="mat-raised-button" (click)="close()">Close</button>
+      <button mat-raised-button class="mat-raised-button mat-primary" [disabled]="!isPicked || f.invalid">Upload
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>
+

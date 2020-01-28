@@ -1,0 +1,13 @@
+@import "~@material/image-list/mdc-image-list";
+.text-center {
+  text-align: center;
+}
+
+.mb {
+  margin-bottom: 20px;
+}
+
+
+.my-image-list {
+  @include mdc-image-list-standard-columns(3);
+}

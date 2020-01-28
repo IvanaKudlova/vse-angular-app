@@ -1,0 +1,18 @@
+#map {
+  height: 500px;
+  width: 100%;
+}
+.content{
+  padding: 50px;
+  background-color: whitesmoke;
+}
+.center{
+  text-align: center;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+}
+.right{
+  margin-left: auto;
+}

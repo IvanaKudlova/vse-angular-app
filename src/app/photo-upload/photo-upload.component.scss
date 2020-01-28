@@ -1,0 +1,21 @@
+.mat-dialog-content{
+  display: flex;
+  flex-direction: column;
+}
+.no_border:focus{
+  outline: none;
+}
+.container{
+  padding: 20px;
+}
+.buttons_section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 40px;
+}
+.input_file_section{
+  padding-top: 30px;
+}

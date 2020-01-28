@@ -1,0 +1,12 @@
+<div class="block md">
+<ul class="mdc-image-list my-image-list mdc-image-list--with-text-protection">
+  <li class="mdc-image-list__item" *ngFor="let source of photoss">
+    <div class="mdc-image-list__image-aspect-container">
+      <a [routerLink]="'/photo-detail/'+source.id"><img class="mdc-image-list__image" [src]="source.imageUrl"/></a>
+    </div>
+    <div class="mdc-image-list__supporting">
+      <span class="mdc-image-list__label">{{source.title}}</span>
+    </div>
+  </li>
+</ul>
+</div>

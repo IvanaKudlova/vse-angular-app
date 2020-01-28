@@ -1,0 +1,7 @@
+<div class="container">
+  <button mat-raised-button type="button" (click)="appService.signInWithFB()" *ngIf="!loggedIn">Sign In With Facebook</button>
+  <button mat-raised-button type="button" [matMenuTriggerFor]="logout" *ngIf="loggedIn">Sign in as {{user.firstName}}</button>
+  <mat-menu #logout="matMenu" class="mat-menu-panel myMenu">
+    <button mat-menu-item (click)="appService.signOut()">Log out</button>
+  </mat-menu>
+</div>

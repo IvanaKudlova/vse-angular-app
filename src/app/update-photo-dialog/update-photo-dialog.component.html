@@ -1,0 +1,54 @@
+<div class="dialog">
+  <h1 mat-dialog-title>Upload new photo</h1>
+
+  <form #f="ngForm" (ngSubmit)="submit()">
+    <div class="form-group container">
+      <label for="title" class="label">Title:</label>
+      <input #title="ngModel" type="text" class="form-control inputField" id="title" required [(ngModel)]="photoTitle"
+             name="updateTitle">
+      <div class="message"
+           *ngIf="title.errors && (title.dirty || title.touched)">
+        <p *ngIf="title.errors.required">title is required</p>
+      </div>
+    </div>
+
+    <div class="form-group container">
+      <label for="lat" class="label">Lat: </label>
+      <input #latitude = "ngModel" type="text" class="form-control inputField" id="lat" required
+             pattern="^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$" [(ngModel)]="lat"
+             name="lat">
+      <div class="message"
+           *ngIf="latitude.errors && (latitude.dirty || latitude.touched)">
+        <p *ngIf="latitude.errors.required">Latitude is required.</p>
+        <p *ngIf="latitude.errors.pattern">Latitude must be in range from -90.000000 to 90.000000.</p>
+      </div>
+    </div>
+
+    <div class="form-group container">
+      <label for="long" class="label">Long: </label>
+      <input #longitude = "ngModel" type="text" class="form-control inputField" id="long" required
+             pattern="^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$"
+             [(ngModel)]="lng" name="long"
+             [ngClass]="{'message': longitude.errors && (longitude.dirty || longitude.touched)}">
+      <div
+           *ngIf="longitude.errors && (longitude.dirty || longitude.touched)">
+        <p *ngIf="longitude.errors.required">Longitude is required.</p>
+        <p *ngIf="longitude.errors.pattern">Longitude must be in range from -180.000000 to 180.000000.</p>
+      </div>
+    </div>
+
+    <div class="input_file_section">
+      <input
+        type="file"
+        (change)="picked($event)"
+        #fileInput
+        required>
+    </div>
+
+    <div class="buttons_section">
+      <button mat-raised-button type="button" class="btn btn-success" (click)="close()">Close</button>
+      <button mat-raised-button type="submit" class="btn btn-success" [disabled]="!isPicked || f.invalid">Submit</button>
+    </div>
+
+  </form>
+</div>
